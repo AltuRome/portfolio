@@ -1,0 +1,23 @@
+.about {
+  padding: 74px 0;
+}
+
+.aboutHead {
+  margin-bottom: 18px;
+}
+
+.aboutParagraph {
+  font-size: 18px;
+  color: rgba(232, 223, 200, 0.92);
+  max-width: 66ch;
+  margin: 18px 0 0;
+}
+
+.aboutSkills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+  width: 100%;
+}
+

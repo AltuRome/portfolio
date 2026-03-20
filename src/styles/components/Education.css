@@ -1,0 +1,81 @@
+.education {
+  padding: 82px 0 64px;
+}
+
+.eduHead {
+  margin-bottom: 26px;
+}
+
+.eduTimeline {
+  display: grid;
+  gap: 14px;
+  border-left: 2px solid rgba(200, 169, 110, 0.35);
+  padding-left: 18px;
+}
+
+.eduItem {
+  background: transparent;
+  position: relative;
+  padding: 4px 0 8px;
+}
+
+.eduItem::before {
+  content: '';
+  position: absolute;
+  left: -9px;
+  top: 22px;
+  width: 14px;
+  height: 14px;
+  border-radius: 999px;
+  background: rgba(45, 107, 130, 0.75);
+  border: 1px solid rgba(74, 143, 168, 0.7);
+  box-shadow: 0 0 0 4px rgba(74, 143, 168, 0.10);
+}
+
+.eduYear {
+  font-size: 12px;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: rgba(200, 169, 110, 0.85);
+}
+
+.eduSchool {
+  margin-top: 10px;
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: 17px;
+}
+
+.eduDetails {
+  margin-top: 6px;
+  color: rgba(232, 223, 200, 0.72);
+  font-family: var(--font-body);
+  font-style: italic;
+}
+
+@media (min-width: 960px) {
+  .eduTimeline {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    border-left: 0;
+    border-top: 2px solid rgba(200, 169, 110, 0.35);
+    padding-left: 0;
+    padding-top: 46px;
+    gap: 18px;
+    align-items: start;
+  }
+
+  .eduItem {
+    padding: 0;
+  }
+
+  .eduItem::before {
+    left: 50%;
+    top: -10px;
+    transform: translateX(-50%);
+  }
+
+  .eduItem {
+    text-align: left;
+  }
+}
+

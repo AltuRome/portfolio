@@ -1,0 +1,103 @@
+.certificates {
+  padding: 78px 0 58px;
+}
+
+.certHead {
+  margin-bottom: 26px;
+}
+
+.certGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 14px;
+}
+
+@media (min-width: 860px) {
+  .certGrid {
+    grid-template-columns: 1fr 1fr;
+    gap: 18px;
+  }
+}
+
+@media (min-width: 1100px) {
+  .certGrid {
+    grid-template-columns: 1fr 1fr 1fr;
+  }
+}
+
+.certCard {
+  position: relative;
+  background: rgba(30, 28, 23, 0.68);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  padding: 16px 16px 14px;
+  transition: transform 300ms var(--ease-smooth), box-shadow 300ms var(--ease-smooth),
+    border-color 300ms var(--ease-smooth), background 300ms var(--ease-smooth);
+  box-shadow: inset 0 1px 0 rgba(74, 143, 168, 0.06), var(--shadow-soft);
+}
+
+.certCard:hover {
+  transform: translateY(-3px);
+  box-shadow: inset 0 1px 0 rgba(74, 143, 168, 0.12), 0 24px 60px rgba(0, 0, 0, 0.25);
+  border-color: rgba(74, 143, 168, 0.55);
+  background: rgba(30, 28, 23, 0.86);
+}
+
+.certCard.highlight {
+  border-color: rgba(200, 169, 110, 0.65);
+  background: rgba(200, 169, 110, 0.08);
+  box-shadow: inset 0 1px 0 rgba(200, 169, 110, 0.22), 0 24px 70px rgba(0, 0, 0, 0.32);
+}
+
+.certYearWrap {
+  position: absolute;
+  top: 12px;
+  right: 14px;
+  pointer-events: none;
+}
+
+.yearBadge {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  font-family: var(--font-mono);
+  font-size: 11px;
+  letter-spacing: 0.18em;
+  padding: 7px 10px;
+  border-radius: 999px;
+  border: 1px solid rgba(200, 169, 110, 0.35);
+  background: rgba(200, 169, 110, 0.09);
+  color: rgba(200, 169, 110, 0.95);
+}
+
+.yearBadgeEmpty {
+  border-color: rgba(200, 169, 110, 0.2);
+  background: rgba(30, 28, 23, 0.55);
+  color: rgba(232, 223, 200, 0.55);
+}
+
+.certSpark {
+  position: absolute;
+  top: 10px;
+  left: 14px;
+  color: rgba(200, 169, 110, 0.9);
+  font-size: 18px;
+  text-shadow: 0 0 24px rgba(200, 169, 110, 0.18);
+}
+
+.certTitle {
+  margin: 18px 0 0;
+  font-family: var(--font-display);
+  font-size: 15px;
+  font-weight: 600;
+  line-height: 1.35;
+}
+
+.certMeta {
+  margin-top: 10px;
+  color: rgba(232, 223, 200, 0.7);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+}
+

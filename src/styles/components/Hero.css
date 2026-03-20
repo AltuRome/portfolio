@@ -1,0 +1,317 @@
+.hero {
+  padding: 98px 0 42px;
+}
+
+.heroGrid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 26px;
+  align-items: start;
+}
+
+.heroAside {
+  display: none;
+}
+
+.heroIntro {
+  width: 100%;
+  max-width: 700px;
+}
+
+.heroName {
+  font-family: var(--font-display);
+  font-weight: 600;
+  font-size: clamp(3rem, 7vw, 6rem);
+  line-height: 1.0;
+  letter-spacing: -0.02em;
+  margin: 18px 0 10px;
+  position: relative;
+  color: var(--text-primary);
+}
+
+.heroNameBg {
+  position: absolute;
+  left: -12px;
+  top: -24px;
+  width: 340px;
+  height: 340px;
+  opacity: 0.04;
+  pointer-events: none;
+  z-index: -1;
+  filter: saturate(1.2);
+}
+
+.heroName::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: -12px;
+  width: 210px;
+  height: 1.6px;
+  background: rgba(200, 169, 110, 0.78);
+  transform: scaleX(0);
+  transform-origin: left;
+  animation: heroUnderline 900ms var(--ease-smooth) forwards;
+}
+
+@keyframes heroUnderline {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+.heroRule {
+  margin-top: 18px;
+  margin-bottom: 2px;
+  max-width: 520px;
+  width: 100%;
+}
+
+.heroTagline {
+  margin: 14px 0 0;
+  color: var(--text-secondary);
+  font-family: var(--font-subhead);
+  font-style: italic;
+  font-size: 20px;
+  max-width: 38ch;
+}
+
+.heroLinksRow {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-top: 22px;
+}
+
+.stampLink {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  padding: 9px 12px;
+  color: var(--text-primary);
+  font-size: 13px;
+  border-radius: 10px;
+  background: rgba(26, 24, 20, 0.85);
+  border: 1px solid var(--gold);
+  border-color: rgba(200, 169, 110, 0.45);
+  transition: transform 300ms var(--ease-smooth), border-color 300ms var(--ease-smooth),
+    background 300ms var(--ease-smooth), box-shadow 300ms var(--ease-smooth);
+}
+
+.stampLink:hover {
+  transform: translateY(-2px);
+  border-color: rgba(74, 143, 168, 0.85);
+  box-shadow: 0 0 0 1px rgba(74, 143, 168, 0.18), 0 0 30px rgba(74, 143, 168, 0.12);
+  background: rgba(26, 24, 20, 0.95);
+}
+
+.stampIcon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--accent);
+  animation: stampGlow 3s ease-in-out infinite;
+}
+
+.stampIcon svg {
+  display: block;
+}
+
+.stampLabel {
+  font-family: var(--font-mono);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: rgba(74, 143, 168, 0.95);
+  font-size: 12px;
+}
+
+.heroContact {
+  margin-top: 18px;
+  display: block;
+}
+
+.heroContactLine {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+  align-items: baseline;
+}
+
+.contactLabel {
+  font-family: var(--font-mono);
+  text-transform: uppercase;
+  letter-spacing: 0.22em;
+  font-size: 11px;
+  color: rgba(200, 169, 110, 0.7);
+}
+
+.mono {
+  font-family: var(--font-mono);
+}
+
+.heroActions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+  margin-top: 26px;
+}
+
+.cvButton {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 12px 16px;
+  border-radius: 999px;
+  background: rgba(74, 143, 168, 0.32);
+  border: 1px solid rgba(74, 143, 168, 0.75);
+  color: var(--text-primary);
+  font-family: var(--font-display);
+  text-transform: none;
+  letter-spacing: 0;
+  font-size: 12px;
+  transition: transform 300ms var(--ease-smooth), box-shadow 300ms var(--ease-smooth),
+    background 300ms var(--ease-smooth), border-color 300ms var(--ease-smooth);
+}
+
+.cvButton:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 18px 40px rgba(74, 143, 168, 0.12);
+  background: rgba(74, 143, 168, 0.42);
+  border-color: rgba(74, 143, 168, 0.95);
+}
+
+.scrollIndicator {
+  appearance: none;
+  border: 0;
+  background: transparent;
+  padding: 0;
+  cursor: pointer;
+  display: inline-flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 10px;
+  color: rgba(232, 223, 200, 0.55);
+  margin-top: 10px;
+  opacity: 0.55;
+  transition: opacity 300ms var(--ease-smooth);
+}
+
+.scrollIndicatorInner {
+  width: 34px;
+  height: 34px;
+  border-radius: 999px;
+  border: 1px solid rgba(200, 169, 110, 0.25);
+  display: grid;
+  place-items: center;
+  background: rgba(30, 28, 23, 0.25);
+}
+
+.arrow {
+  width: 9px;
+  height: 9px;
+  border-right: 1.6px solid rgba(74, 143, 168, 0.95);
+  border-bottom: 1.6px solid rgba(74, 143, 168, 0.95);
+  transform: rotate(45deg);
+  animation: arrowBreathe 3s var(--ease-smooth) infinite;
+}
+
+@keyframes arrowBreathe {
+  0% {
+    transform: translateY(-2px) rotate(45deg);
+    opacity: 0.6;
+  }
+  45% {
+    transform: translateY(3px) rotate(45deg);
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-2px) rotate(45deg);
+    opacity: 0.6;
+  }
+}
+
+.stampIcon svg {
+  transition: filter 300ms var(--ease-smooth);
+}
+
+@keyframes stampGlow {
+  0% {
+    opacity: 0.75;
+    filter: drop-shadow(0 0 0 rgba(74, 143, 168, 0));
+  }
+  50% {
+    opacity: 1;
+    filter: drop-shadow(0 0 18px rgba(74, 143, 168, 0.28));
+  }
+  100% {
+    opacity: 0.75;
+    filter: drop-shadow(0 0 0 rgba(74, 143, 168, 0));
+  }
+}
+
+.scrollText {
+  font-size: 11px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+  opacity: 0.9;
+}
+
+@media (min-width: 860px) {
+  .hero {
+    padding-top: 118px;
+  }
+  .heroGrid {
+    gap: 34px;
+  }
+  .heroIntro {
+    max-width: none;
+  }
+}
+
+@media (min-width: 1020px) {
+  .heroGrid {
+    grid-template-columns: 3fr 2fr; /* 60/40 */
+  }
+
+  .heroAside {
+    display: block;
+    height: 280px;
+    border-radius: var(--radius-lg);
+    background:
+      radial-gradient(240px 160px at 30% 20%, rgba(74, 143, 168, 0.12), transparent 60%),
+      radial-gradient(200px 150px at 60% 70%, rgba(200, 169, 110, 0.08), transparent 60%),
+      rgba(30, 28, 23, 0.35);
+    border: 1px solid rgba(200, 169, 110, 0.12);
+    box-shadow: var(--shadow-soft);
+    overflow: hidden;
+    position: relative;
+  }
+
+  .heroAside::after {
+    content: '';
+    position: absolute;
+    inset: -30%;
+    background: repeating-linear-gradient(115deg, rgba(74, 143, 168, 0.22) 0px, rgba(74, 143, 168, 0) 8px);
+    opacity: 0.12;
+    transform: rotate(0deg);
+  }
+
+  .scrollIndicator {
+    grid-column: 1 / -1;
+    justify-self: flex-start;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .heroName::after {
+    animation: none;
+    transform: scaleX(1);
+  }
+  .arrow {
+    animation: none;
+  }
+  .stampIcon {
+    animation: none;
+  }
+}
+

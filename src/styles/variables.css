@@ -1,0 +1,32 @@
+:root {
+  --bg-primary: #0F0E0B;
+  --bg-secondary: #1A1814;
+  --bg-paper: #1E1C17;
+
+  --text-primary: #E8DFC8;
+  --text-secondary: #9E9480;
+
+  --accent: #4A8FA8;
+  --accent-soft: #2D6B82;
+  --accent-glow: rgba(74, 143, 168, 0.15);
+
+  --gold: #C8A96E;
+  --border: rgba(200, 169, 110, 0.2);
+
+  --shadow-soft: 0 18px 48px rgba(0, 0, 0, 0.35);
+  --shadow-card: 0 14px 30px rgba(0, 0, 0, 0.35);
+
+  --radius-lg: 22px;
+  --radius-md: 16px;
+
+  --maxw: 1200px;
+
+  --font-display: 'Cinzel', serif;
+  --font-subhead: 'Playfair Display', serif;
+  --font-body: 'Crimson Pro', serif;
+  --font-mono: 'JetBrains Mono', ui-monospace, SFMono-Regular, Menlo, Monaco,
+    Consolas, 'Liberation Mono', 'Courier New', monospace;
+
+  --ease-smooth: cubic-bezier(0.2, 0.85, 0.2, 1);
+}
+

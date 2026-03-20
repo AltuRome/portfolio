@@ -1,0 +1,88 @@
+.footer {
+  padding: 34px 0 44px;
+  position: relative;
+}
+
+.footerDivider {
+  margin-top: 0;
+}
+
+.footerInner {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  align-items: flex-start;
+  position: relative;
+  z-index: 1;
+}
+
+.footerBuilt {
+  font-family: var(--font-display);
+  color: rgba(200, 169, 110, 0.85);
+  font-size: 12px;
+  letter-spacing: 0.14em;
+  text-transform: none;
+  font-variant: small-caps;
+}
+
+.footerEmail {
+  margin-top: 10px;
+  display: flex;
+  align-items: baseline;
+  gap: 10px;
+  flex-wrap: wrap;
+}
+
+.footerSocial {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 14px;
+}
+
+.footerSocialLink {
+  width: 38px;
+  height: 38px;
+  border-radius: 999px;
+  border: 1px solid rgba(200, 169, 110, 0.25);
+  background: rgba(30, 28, 23, 0.45);
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 300ms var(--ease-smooth), border-color 300ms var(--ease-smooth),
+    background 300ms var(--ease-smooth), box-shadow 300ms var(--ease-smooth);
+}
+
+.footerSocialLink:hover {
+  transform: translateY(-2px);
+  border-color: rgba(74, 143, 168, 0.65);
+  background: rgba(30, 28, 23, 0.7);
+  box-shadow: 0 0 0 1px rgba(74, 143, 168, 0.12), 0 0 28px rgba(74, 143, 168, 0.12);
+}
+
+.footerSocialIcon {
+  color: var(--accent);
+  display: inline-flex;
+}
+
+.footerWatermark {
+  position: absolute;
+  left: 18px;
+  top: 0;
+  font-family: var(--font-mono);
+  font-weight: 700;
+  font-size: 120px;
+  line-height: 1;
+  letter-spacing: 0.02em;
+  color: rgba(200, 169, 110, 0.02);
+  pointer-events: none;
+  z-index: 0;
+}
+
+@media (min-width: 860px) {
+  .footerInner {
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+  }
+}
+
