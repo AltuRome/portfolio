@@ -20,6 +20,8 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
+  width: 100%;
+  padding: 0 1.5rem;
   gap: 14px;
 }
 
@@ -27,20 +29,13 @@
   display: inline-flex;
   align-items: center;
   gap: 10px;
-}
-
-.brandMark {
-  font-family: var(--font-mono);
-  font-weight: 700;
-  letter-spacing: 0.1em;
-  color: var(--gold);
-  font-size: 18px;
+  flex-shrink: 0;
 }
 
 .navLinks {
   display: none;
   align-items: center;
-  gap: 22px;
+  gap: 2.5rem;
 }
 
 .navLink {
@@ -49,7 +44,7 @@
   font-variant: small-caps;
   letter-spacing: 0.06em;
   text-transform: none;
-  color: rgba(158, 148, 128, 0.95);
+  color: var(--text-secondary);
   position: relative;
   padding: 8px 0;
   transition: color 300ms var(--ease-smooth), text-shadow 300ms var(--ease-smooth);
@@ -100,6 +95,10 @@
 }
 
 @media (min-width: 860px) {
+  .navInner {
+    padding: 0 4rem;
+  }
+
   .hamburger {
     display: none;
   }
@@ -139,4 +138,3 @@
     background: rgba(74, 143, 168, 0.10);
   }
 }
-

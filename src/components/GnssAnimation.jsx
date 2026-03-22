@@ -144,11 +144,11 @@ export default function GnssAnimation() {
   }, [reduced]);
 
   // Orbit curve (elliptical-ish) across the frame.
-  const orbitD = 'M20 130 Q140 20 260 130';
+  const orbitD = 'M20 170 Q190 30 360 170';
 
   return (
     <div className="gnssWrap" aria-hidden="true">
-      <svg className="gnssSvg" viewBox="0 0 280 180" preserveAspectRatio="none">
+      <svg className="gnssSvg" viewBox="0 0 380 240" preserveAspectRatio="none">
         <defs>
           <path id="orbitPath" d={orbitD} />
         </defs>
@@ -157,10 +157,10 @@ export default function GnssAnimation() {
 
         {/* Stars */}
         <g className="gnssStars">
-          <circle cx="42" cy="34" r="1.4" className="gnssStar" style={{ animationDelay: '0.1s' }} />
-          <circle cx="222" cy="28" r="1.1" className="gnssStar" style={{ animationDelay: '0.5s' }} />
-          <circle cx="248" cy="70" r="1.3" className="gnssStar" style={{ animationDelay: '0.8s' }} />
-          <circle cx="78" cy="76" r="1.0" className="gnssStar" style={{ animationDelay: '1.1s' }} />
+          <circle cx="56" cy="44" r="1.4" className="gnssStar" style={{ animationDelay: '0.1s' }} />
+          <circle cx="300" cy="36" r="1.1" className="gnssStar" style={{ animationDelay: '0.5s' }} />
+          <circle cx="336" cy="92" r="1.3" className="gnssStar" style={{ animationDelay: '0.8s' }} />
+          <circle cx="106" cy="100" r="1.0" className="gnssStar" style={{ animationDelay: '1.1s' }} />
         </g>
 
         {/* Trail */}

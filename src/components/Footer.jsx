@@ -93,9 +93,6 @@ export default function Footer() {
     <footer className="footer">
       <div className="container">
         <hr className="sectionDivider footerDivider" />
-        <div className="footerWatermark" aria-hidden="true">
-          AA
-        </div>
         <div className="footerInner">
           <div className="footerLeft">
             <div className="footerBuilt">Built by Altamash Amil</div>

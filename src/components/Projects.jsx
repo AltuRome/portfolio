@@ -63,45 +63,49 @@ export default function Projects() {
           <hr className="sectionDivider" />
         </div>
 
-        <div className="projectsGrid">
-          {projects.map((p, idx) => (
-            <article
-              key={p.title}
-              className="projectCard reveal"
-              data-reveal
-              style={{ '--reveal-delay': `${180 + idx * 100}ms` }}
-              onMouseEnter={p.animation === 'graph' ? () => setGraphHover(true) : undefined}
-              onMouseLeave={p.animation === 'graph' ? () => setGraphHover(false) : undefined}
-            >
-              <div className="projectCardGrid">
-                <div className="projectContent">
-                  <div className="projectTop">
-                    <h3 className="projectTitle">{p.title}</h3>
-                    <div className="projectDate mono">{p.date}</div>
+        <div className="projectsRows">
+          {projects.map((p, idx) => {
+            const isReverse = idx % 2 === 1;
+            return (
+              <React.Fragment key={p.title}>
+                {idx > 0 && <hr className="sectionDivider projectRowDivider" />}
+                <article
+                  className={`projectRow ${isReverse ? 'projectRowReverse' : ''} reveal`}
+                  data-reveal
+                  style={{ '--reveal-delay': `${180 + idx * 100}ms` }}
+                  onMouseEnter={p.animation === 'graph' ? () => setGraphHover(true) : undefined}
+                  onMouseLeave={p.animation === 'graph' ? () => setGraphHover(false) : undefined}
+                >
+                  <div className="projectRowGrid">
+                    <div className="projectContent">
+                      <div className="projectTop">
+                        <h3 className="projectTitle">{p.title}</h3>
+                        <div className="projectDate mono">{p.date}</div>
+                      </div>
+
+                      <div className="projectTags">
+                        {p.tags.map((t) => (
+                          <span key={t} className="pill mono projectTag">
+                            {t}
+                          </span>
+                        ))}
+                      </div>
+
+                      <ul className="projectBullets">
+                        {p.bullets.map((b) => (
+                          <li key={b}>{b}</li>
+                        ))}
+                      </ul>
+                    </div>
+
+                    <div className="projectVisual">{renderAnimation(p.animation)}</div>
                   </div>
-
-                  <div className="projectTags">
-                    {p.tags.map((t) => (
-                      <span key={t} className="pill mono projectTag">
-                        {t}
-                      </span>
-                    ))}
-                  </div>
-
-                  <ul className="projectBullets">
-                    {p.bullets.map((b) => (
-                      <li key={b}>{b}</li>
-                    ))}
-                  </ul>
-                </div>
-
-                <div className="projectVisual">{renderAnimation(p.animation)}</div>
-              </div>
-            </article>
-          ))}
+                </article>
+              </React.Fragment>
+            );
+          })}
         </div>
       </div>
     </section>
   );
 }
-

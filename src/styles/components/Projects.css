@@ -10,63 +10,23 @@
   margin-bottom: 0;
 }
 
-.projectsGrid {
+.projectsRows {
+  display: flex;
+  flex-direction: column;
+}
+
+.projectRowDivider {
+  margin: 0;
+}
+
+.projectRow {
+  padding: 4rem 0;
+}
+
+.projectRowGrid {
   display: grid;
   grid-template-columns: 1fr;
-  gap: 18px;
-}
-
-.projectCard {
-  background: rgba(30, 28, 23, 0.68);
-  border: 1px solid var(--border);
-  border-radius: var(--radius-lg);
-  padding: 18px 18px 16px;
-  box-shadow: inset 0 1px 0 rgba(74, 143, 168, 0.08), var(--shadow-soft);
-  transition: transform 300ms var(--ease-smooth), box-shadow 300ms var(--ease-smooth),
-    border-color 300ms var(--ease-smooth), background 300ms var(--ease-smooth);
-  position: relative;
-  overflow: hidden;
-}
-
-.projectCard::before {
-  content: '';
-  position: absolute;
-  top: 16px;
-  left: 16px;
-  width: 36px;
-  height: 36px;
-  border-top: 1px solid rgba(200, 169, 110, 0.42);
-  border-left: 1px solid rgba(200, 169, 110, 0.42);
-  border-radius: 12px 0 0 0;
-  pointer-events: none;
-  opacity: 0.9;
-}
-
-.projectCard::after {
-  content: '';
-  position: absolute;
-  right: 16px;
-  bottom: 16px;
-  width: 36px;
-  height: 36px;
-  border-right: 1px solid rgba(200, 169, 110, 0.42);
-  border-bottom: 1px solid rgba(200, 169, 110, 0.42);
-  border-radius: 0 0 12px 0;
-  pointer-events: none;
-  opacity: 0.7;
-}
-
-.projectCard:hover {
-  transform: translateY(-4px);
-  box-shadow: inset 0 1px 0 rgba(74, 143, 168, 0.14), 0 24px 60px rgba(0, 0, 0, 0.35);
-  border-color: rgba(74, 143, 168, 0.55);
-  background: rgba(30, 28, 23, 0.82);
-}
-
-.projectCardGrid {
-  display: grid;
-  grid-template-columns: 1fr;
-  gap: 14px;
+  gap: 1.5rem;
   position: relative;
   z-index: 1;
 }
@@ -152,15 +112,6 @@
 }
 
 @media (min-width: 960px) {
-  .projectsGrid {
-    grid-template-columns: 1fr 1fr;
-    gap: 22px;
-  }
-
-  .projectCard {
-    padding: 20px 22px 18px;
-  }
-
   .projectTitle {
     font-size: 24px;
   }
@@ -169,9 +120,11 @@
     font-size: 16px;
   }
 
-  .projectCardGrid {
-    grid-template-columns: minmax(0, 1fr) 280px;
-    gap: 18px;
+  .projectRowGrid {
+    display: grid;
+    grid-template-columns: 55fr 45fr;
+    align-items: center;
+    gap: 3rem;
   }
 
   .projectContent {
@@ -181,5 +134,17 @@
   .projectVisual {
     order: 2;
   }
-}
 
+  /* Reverse layout for even rows */
+  .projectRowReverse .projectRowGrid {
+    grid-template-columns: 45fr 55fr;
+  }
+
+  .projectRowReverse .projectContent {
+    order: 2;
+  }
+
+  .projectRowReverse .projectVisual {
+    order: 1;
+  }
+}

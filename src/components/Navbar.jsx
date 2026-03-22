@@ -1,6 +1,7 @@
 import React, { useEffect, useMemo, useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 
+import SpaceshipLogo from './SpaceshipLogo.jsx';
 import '../styles/components/Navbar.css';
 
 const navItems = [
@@ -34,16 +35,14 @@ export default function Navbar() {
 
   return (
     <header className={`navbar ${scrolled ? 'isScrolled' : ''}`}>
-      <div className="container navInner">
+      <div className="navInner">
         <Link
           to="/"
           className="brand"
           aria-label="Altamash Amil home"
           onClick={() => setOpen(false)}
         >
-          <span className="brandMark" aria-hidden="true">
-            AA
-          </span>
+          <SpaceshipLogo variant="navbar" />
         </Link>
 
         <button
@@ -79,4 +78,3 @@ export default function Navbar() {
     </header>
   );
 }
-
