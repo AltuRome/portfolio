@@ -36,13 +36,13 @@ export default function GraphAnimation({ active } = {}) {
 
   const nodes = useMemo(
     () => [
-      { id: 'A', x: 70, y: 38 },
-      { id: 'B', x: 140, y: 58 },
-      { id: 'C', x: 214, y: 44 },
-      { id: 'D', x: 108, y: 102 },
-      { id: 'E', x: 64, y: 132 },
-      { id: 'F', x: 172, y: 122 },
-      { id: 'G', x: 226, y: 98 },
+      { id: 'A', x: 95, y: 52 },
+      { id: 'B', x: 190, y: 78 },
+      { id: 'C', x: 290, y: 60 },
+      { id: 'D', x: 146, y: 136 },
+      { id: 'E', x: 86, y: 176 },
+      { id: 'F', x: 234, y: 162 },
+      { id: 'G', x: 306, y: 130 },
     ],
     [],
   );
@@ -156,8 +156,8 @@ export default function GraphAnimation({ active } = {}) {
       aria-label="Graph path finder Dijkstra visualization"
     >
       <div className="graphCanvas">
-        <svg className="graphSvg" viewBox="0 0 280 180" preserveAspectRatio="none">
-          <rect x="0" y="0" width="280" height="180" fill="var(--bg-secondary)" />
+        <svg className="graphSvg" viewBox="0 0 380 240" preserveAspectRatio="none">
+          <rect x="0" y="0" width="380" height="240" fill="var(--bg-secondary)" />
 
           {/* Edges */}
           <g>

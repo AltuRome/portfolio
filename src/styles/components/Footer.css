@@ -64,19 +64,6 @@
   display: inline-flex;
 }
 
-.footerWatermark {
-  position: absolute;
-  left: 18px;
-  top: 0;
-  font-family: var(--font-mono);
-  font-weight: 700;
-  font-size: 120px;
-  line-height: 1;
-  letter-spacing: 0.02em;
-  color: rgba(200, 169, 110, 0.02);
-  pointer-events: none;
-  z-index: 0;
-}
 
 @media (min-width: 860px) {
   .footerInner {

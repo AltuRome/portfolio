@@ -3,79 +3,227 @@
 }
 
 .eduHead {
-  margin-bottom: 26px;
+  margin-bottom: 2.5rem;
 }
 
+/* ── Timeline container ──────────────────────── */
 .eduTimeline {
-  display: grid;
-  gap: 14px;
-  border-left: 2px solid rgba(200, 169, 110, 0.35);
-  padding-left: 18px;
-}
-
-.eduItem {
-  background: transparent;
   position: relative;
-  padding: 4px 0 8px;
+  display: flex;
+  flex-direction: column;
+  padding-left: 42px;
 }
 
-.eduItem::before {
+/* Vertical line running down the left */
+.eduTimeline::before {
   content: '';
   position: absolute;
-  left: -9px;
-  top: 22px;
-  width: 14px;
-  height: 14px;
-  border-radius: 999px;
-  background: rgba(45, 107, 130, 0.75);
-  border: 1px solid rgba(74, 143, 168, 0.7);
-  box-shadow: 0 0 0 4px rgba(74, 143, 168, 0.10);
+  left: 8px;
+  top: 0;
+  bottom: 0;
+  width: 2px;
+  background: rgba(200, 169, 110, 0.25);
 }
 
-.eduYear {
-  font-size: 12px;
+/* ── Entry row ───────────────────────────────── */
+.eduEntry {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 0.5rem;
+  padding: 2rem 0;
+  border-bottom: 1px solid var(--border);
+  position: relative;
+}
+
+.eduEntry:last-child {
+  border-bottom: none;
+}
+
+/* ── Timeline node ───────────────────────────── */
+.eduNode {
+  position: absolute;
+  left: -42px;
+  top: 2.4rem;
+  width: 16px;
+  height: 16px;
+  border-radius: 999px;
+  transform: translateX(-0px);
+  z-index: 2;
+}
+
+/* Ongoing node — filled teal with pulse */
+.eduNodeOngoing {
+  background: var(--accent);
+  border: 2px solid var(--accent);
+  animation: nodeGlow 2s ease-in-out infinite;
+}
+
+/* Completed node — hollow gold */
+.eduNodeCompleted {
+  background: var(--bg-primary);
+  border: 2px solid var(--gold);
+}
+
+@keyframes nodeGlow {
+  0%   { box-shadow: 0 0 0 0 rgba(74, 143, 168, 0.4); }
+  50%  { box-shadow: 0 0 0 6px rgba(74, 143, 168, 0.0), 0 0 12px rgba(74, 143, 168, 0.25); }
+  100% { box-shadow: 0 0 0 0 rgba(74, 143, 168, 0.4); }
+}
+
+/* ── Date ─────────────────────────────────────── */
+.eduDate {
+  font-family: var(--font-mono);
+  font-size: 0.8rem;
   letter-spacing: 0.18em;
   text-transform: uppercase;
-  color: rgba(200, 169, 110, 0.85);
+  color: var(--accent);
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+}
+
+/* Pulsing teal dot beside date for ongoing */
+.eduPulseDot {
+  display: inline-block;
+  width: 7px;
+  height: 7px;
+  border-radius: 999px;
+  background: var(--accent);
+  animation: dotPulse 2s ease-in-out infinite;
+  flex-shrink: 0;
+}
+
+@keyframes dotPulse {
+  0%   { opacity: 0.5; transform: scale(0.85); }
+  50%  { opacity: 1;   transform: scale(1.2); }
+  100% { opacity: 0.5; transform: scale(0.85); }
+}
+
+/* ── Content ──────────────────────────────────── */
+.eduContent {
+  min-width: 0;
+}
+
+.eduInstitution {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  position: relative;
 }
 
 .eduSchool {
-  margin-top: 10px;
+  margin: 0;
   font-family: var(--font-display);
   font-weight: 600;
-  font-size: 17px;
+  font-size: 18px;
+  line-height: 1.3;
+  color: var(--text-primary);
 }
 
-.eduDetails {
-  margin-top: 6px;
-  color: rgba(232, 223, 200, 0.72);
+.eduOngoingBadge {
+  font-family: var(--font-mono);
+  font-size: 0.65rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  padding: 3px 8px;
+  border-radius: 999px;
+  background: var(--accent);
+  color: var(--bg-primary);
+  flex-shrink: 0;
+}
+
+.eduLocation {
+  margin-top: 3px;
   font-family: var(--font-body);
+  font-size: 0.85rem;
+  color: var(--text-secondary);
+}
+
+.eduDegree {
+  margin-top: 6px;
+  font-family: var(--font-subhead);
   font-style: italic;
+  font-size: 15px;
+  color: var(--text-secondary);
 }
 
-@media (min-width: 960px) {
-  .eduTimeline {
-    grid-template-columns: repeat(3, minmax(0, 1fr));
-    border-left: 0;
-    border-top: 2px solid rgba(200, 169, 110, 0.35);
-    padding-left: 0;
-    padding-top: 46px;
-    gap: 18px;
+/* ── Completion sweep animation ──────────────── */
+.eduSweep {
+  overflow: hidden;
+}
+
+.eduSweep::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 2px;
+  width: 0;
+  background: linear-gradient(to right, var(--gold), transparent);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Trigger sweep when parent row is revealed */
+.eduCompleted.is-visible .eduSweep::after {
+  animation: sweepLine 0.8s ease-out forwards;
+}
+
+/* Stagger the second completed entry */
+.eduCompleted:last-child.is-visible .eduSweep::after {
+  animation-delay: 0.15s;
+}
+
+@keyframes sweepLine {
+  0%   { width: 0;    opacity: 0.7; }
+  80%  { width: 100%;  opacity: 0.7; }
+  100% { width: 100%;  opacity: 0; }
+}
+
+/* ── Desktop: 2-column grid per entry ────────── */
+@media (min-width: 768px) {
+  .eduEntry {
+    display: grid;
+    grid-template-columns: 180px 1fr;
+    gap: 2rem;
     align-items: start;
-  }
-
-  .eduItem {
-    padding: 0;
-  }
-
-  .eduItem::before {
-    left: 50%;
-    top: -10px;
-    transform: translateX(-50%);
-  }
-
-  .eduItem {
-    text-align: left;
+    padding: 2.5rem 0;
   }
 }
 
+/* ── Mobile: single column ───────────────────── */
+@media (max-width: 767px) {
+  .eduTimeline {
+    padding-left: 36px;
+  }
+
+  .eduNode {
+    left: -36px;
+    width: 14px;
+    height: 14px;
+  }
+
+  .eduTimeline::before {
+    left: 7px;
+  }
+
+  .eduDate {
+    font-size: 0.75rem;
+  }
+
+  .eduSchool {
+    font-size: 16px;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .eduNodeOngoing,
+  .eduPulseDot {
+    animation: none;
+  }
+
+  .eduCompleted.is-visible .eduSweep::after {
+    animation: none;
+  }
+}

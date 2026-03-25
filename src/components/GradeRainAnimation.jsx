@@ -25,7 +25,7 @@ export default function GradeRainAnimation() {
 
   const canvasRef = useRef(null);
   const rafRef = useRef(0);
-  const sizeRef = useRef({ w: 280, h: 180 });
+  const sizeRef = useRef({ w: 380, h: 240 });
 
   const [focalKey, setFocalKey] = useState(0);
   const [focalIndex, setFocalIndex] = useState(0);

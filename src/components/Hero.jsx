@@ -1,6 +1,7 @@
 import React from 'react';
 import { useNavigate } from 'react-router-dom';
 
+import SpaceshipLogo from './SpaceshipLogo.jsx';
 import '../styles/components/Hero.css';
 
 function ExternalIcon({ kind }) {
@@ -209,7 +210,9 @@ export default function Hero() {
           </div>
         </div>
 
-        <aside className="heroAside" aria-hidden="true" />
+        <aside className="heroAside" aria-hidden="true">
+          <SpaceshipLogo variant="hero" />
+        </aside>
 
         <button
           type="button"
